@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+// import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:directory_app/pages/Locate.dart';
 import 'package:directory_app/pages/Chat.dart';
 import 'package:directory_app/services/CardData.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -46,7 +47,6 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   ),
-
                 ],
               ),
             ),
@@ -57,7 +57,6 @@ class _HomeState extends State<Home> {
               color: Colors.grey[200],
               thickness: 0.3,
             ),
-
             CardData()
           ],
         ),

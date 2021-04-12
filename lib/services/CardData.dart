@@ -58,10 +58,10 @@ class CardData extends StatelessWidget {
               onTap: (){
                 print("Container ${data.title} clicked");
                 if(data.requiresMap){
-                  print("Hello divyansh");
+                  print("This one requires map");
                 }
                 else{
-                  print("Hello anushka");
+                  print("This one doesnt ");
                 }
               },
               child: Container(
@@ -94,7 +94,6 @@ class CardData extends StatelessWidget {
                               fontSize: 16,
                               fontWeight: FontWeight.w600)
                     ),
-
                   ],
                 ),
               ),
