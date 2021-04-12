@@ -4,12 +4,8 @@ class Locate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Manipal Directory"),
-        centerTitle: true,
-        backgroundColor: Colors.grey[800],
-      ),
-      backgroundColor: Colors.orange,
+
+      backgroundColor: Colors.grey[900],
       body: Center(
         child: Container(
           child: Text(
