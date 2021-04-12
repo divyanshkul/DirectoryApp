@@ -46,7 +46,7 @@ class CardData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Items> listOfItems = [item1, item2, item3, item4, item5, item6, item7];
-    var color = 0xff453658;
+    var color = 0xff1f1f1f;
     return Flexible(
       child: GridView.count(
           padding: EdgeInsets.only(left: 16, right: 16),
@@ -70,8 +70,8 @@ class CardData extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
-                      blurRadius: 2.0, // soften the shadow
-                      spreadRadius: 0.1, //extend the shadow
+                      blurRadius: 1.0, // soften the shadow
+                      spreadRadius: 0.5, //extend the shadow
                       offset: Offset(3,3),
                     )
                   ],
