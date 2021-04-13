@@ -47,3 +47,19 @@ class _SubpageState extends State<Subpage> {
 
   );
 }
+
+// Reading from firebase
+//final dbRef = FirebaseDatabase.instance.reference().child("medical");
+
+// return FutureBuilder(
+// future: dbRef.once(),
+// builder: (context, AsyncSnapshot<DataSnapshot> snapshot) {
+// if (snapshot.hasData) {
+//
+// Map<dynamic, dynamic> values = snapshot.data.value;
+// print(snapshot.data.value);
+//
+// }  
+// return CircularProgressIndicator();
+// });
+//
