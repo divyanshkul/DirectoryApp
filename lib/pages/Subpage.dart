@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 
 class Subpage extends StatefulWidget {
@@ -15,35 +16,34 @@ class _SubpageState extends State<Subpage> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-
-      children: [
-        GoogleMap(
-          mapType: MapType.normal,
-          myLocationButtonEnabled: true,
-          myLocationEnabled: true,
-          zoomGesturesEnabled: true,
-          zoomControlsEnabled: true,
-          initialCameraPosition:
-              CameraPosition(target: LatLng(24.142, -110.321), zoom: 15),
+    return Scaffold(
+      body: SlidingUpPanel(
+        panelBuilder: (scrollController) => buildSlidingPanel(
+          scrollController: scrollController,
         ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        body: Stack(
+
           children: [
-            Container(
-              color: Colors.blueAccent,
-              child: TextButton(
-                  child: Text("Click me to append"),
-                  onPressed: (){
-                    testRef.set("LAWDA");
-                  },
-              ),
+            GoogleMap(
+              mapType: MapType.normal,
+              myLocationButtonEnabled: true,
+              myLocationEnabled: true,
+              zoomGesturesEnabled: true,
+              zoomControlsEnabled: true,
+              initialCameraPosition:
+                  CameraPosition(target: LatLng(24.142, -110.321), zoom: 15),
             ),
           ],
-        )
-
-      ],
+        ),
+      ),
     );
+
   }
+
+  Widget buildSlidingPanel({
+    @required ScrollController scrollController,
+  }) => Container(
+    child: Text("TEXT lmao"),
+
+  );
 }
