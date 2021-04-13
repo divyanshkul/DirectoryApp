@@ -1,0 +1,236 @@
+{
+   "hotel":{
+      "Country inn":{
+         "contact":8202701600,
+         "reported":0
+      },
+      "Fortune Inn":{
+         "contact":8202701602,
+         "reported":0
+      },
+      "Hotel Ashlesh":{
+         "contact":8202701603,
+         "reported":0
+      },
+      "Hotel Green park suite":{
+         "contact":8202701604,
+         "reported":0
+      },
+      "Tranquil":{
+         "contact":8202701605,
+         "reported":0
+      }
+   },
+   "medical":{
+      "KMC(1)":{
+         "contact":8202571967,
+         "reported":0
+      },
+      "KMC(2)":{
+         "contact":8202922761,
+         "reported":0
+      },
+      "Blood Bank":{
+         "contact":820292331,
+         "reported":0
+      },
+      "Sonia clinic and nursing":{
+         "contact":8202570334,
+         "reported":0
+      },
+      "Dr Subhas Bhat Dental":{
+         "contact":9880041652,
+         "reported":0
+      }
+   },
+   "auto":{
+      "Dashratha":{
+         "contact":8202572006,
+         "reported":0
+      },
+      "Mandavi":{
+         "contact":8207507080,
+         "reported":0
+      },
+      "Manish":{
+         "contact":8202512345,
+         "reported":0
+      },
+      "Night Auto Satish":{
+         "contact":8202573212,
+         "reported":0
+      }
+   },
+   "Mess":{
+      "Apporva":{
+         "contact":9535130111,
+         "reported":0
+      },
+      "FC1":{
+         "contact":9535112313,
+         "reported":0
+      },
+      "FC2":{
+         "contact":9535130133,
+         "reported":0
+      },
+      "Campus Grill":{
+         "contact":9535130123,
+         "reported":0
+      }
+   },
+   "Eateries":{
+      "Anupam":{
+         "contact":9535112345,
+         "reported":0
+      },
+      "Attil":{
+         "contact":953512456,
+         "reported":0
+      },
+      "Dollops":{
+         "contact":9535112567,
+         "reported":0
+      },
+      "Dominos":{
+         "contact":9535109876,
+         "reported":0
+      },
+      "Egg Factory":{
+         "contact":9535176859,
+         "reported":0
+      }
+   },
+   "Emergency Contacts":{
+      "Ambulance":{
+         "contact":23423432,
+         "reported":0
+      },
+      "Fire Helpline":{
+         "contact":8202520333,
+         "reported":0
+      },
+      "KMC Ambulance(1)":{
+         "contact":8202520342,
+         "reported":0
+      },
+      "KMC Ambulance(2)":{
+         "contact":8202520098,
+         "reported":0
+      }
+   },
+   "Grocery Stores":{
+      "Laxmi Super market":{
+         "contact":8202520098,
+         "reported":0
+      },
+      "Manipal Corner":{
+         "contact":8202524567,
+         "reported":0
+      },
+      "Queens":{
+         "contact":8202521234,
+         "reported":0
+      },
+      "Yas Mart":{
+         "contact":8202521254,
+         "reported":0
+      },
+      "More Supermarket":{
+         "contact":8202528543,
+         "reported":0
+      }
+   },
+   "Departments":{
+      "Aeronautical and Automobile":{
+         "contact":8202529876,
+         "reported":0
+      },
+      "Biomedical":{
+         "contact":8202509675,
+         "reported":0
+      },
+      "Biomtechnology":{
+         "contact":8202520029,
+         "reported":0
+      },
+      "Electrical":{
+         "contact":8202520091,
+         "reported":0
+      },
+      "Academic Section":{
+         "contact":8202520092,
+         "reported":0
+      }
+   },
+   "Mahe College Departments":{
+      "Academic Section":{
+         "contact":8202924016,
+         "reported":0
+      },
+      "Admin Office":{
+         "contact":8202924011,
+         "reported":0
+      },
+      "Assosciate Director Academics":{
+         "contact":8202924012,
+         "reported":0
+      },
+      "Chief Warden":{
+         "contact":8202924013,
+         "reported":0
+      }
+   },
+   "Miscellaneous Services":{
+      "Ion Helpline":{
+         "contact":8045114580,
+         "reported":0
+      },
+      "Kamath Book store":{
+         "contact":8045114581,
+         "reported":0
+      },
+      "Snake Handler Gururaj":{
+         "contact":8045114583,
+         "reported":0
+      }
+   },
+   "Project Work and tech stores":{
+      "HP service center":{
+         "contact":9513399161,
+         "reported":0
+      },
+      "Harsha Electronics":{
+         "contact":8202521841,
+         "reported":0
+      },
+      "Tesla Elctronics":{
+         "contact":8202521843,
+         "reported":0
+      }
+   },
+   "Rent a bike":{
+      "Bhoom Riders":{
+         "contact":8150025922,
+         "reported":0
+      },
+      "IndiaRides":{
+         "contact":8150025923,
+         "reported":0
+      }
+   },
+   "Travel Agencies":{
+      "Ambika Travels":{
+         "contact":9482255555,
+         "reported":0
+      },
+      "Mangalore Railway Station":{
+         "contact":9482255556,
+         "reported":0
+      },
+      "Siddhi Travels":{
+         "contact":9482255557,
+         "reported":0
+      }
+   }
+}
