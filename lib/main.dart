@@ -30,7 +30,7 @@ class DirectoryApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/Welcome',
+      initialRoute: '/Subpage',
       routes: {
         '/Welcome': (context) => Welcome(),
         '/Home': (context) => Home(),
@@ -44,6 +44,6 @@ class DirectoryApp extends StatelessWidget{
     );
   }
 }
-
+/**/
 
 

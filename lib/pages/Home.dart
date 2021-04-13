@@ -6,6 +6,7 @@ import 'package:directory_app/pages/Chat.dart';
 import 'package:directory_app/services/CardData.dart';
 
 
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -17,12 +18,12 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[800],
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Column(
           children: <Widget>[
             SizedBox(
-              height: 10,
+              height: 30,
             ),
             Padding(
               padding: EdgeInsets.only(left: 16, right: 16),
@@ -57,6 +58,7 @@ class _HomeState extends State<Home> {
               color: Colors.grey[200],
               thickness: 0.3,
             ),
+            SizedBox(height: 20),
             CardData()
           ],
         ),

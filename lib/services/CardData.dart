@@ -1,60 +1,85 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class CardData extends StatelessWidget {
   Items item1 = new Items(
-      title: "1",
-      img: Icons.medical_services,
+      title: "Medical Emergencies",
+      img: "assets/medical1.png",
       requiresMap: true,
+      iconColor: Colors.red,
   );
 
   Items item2 = new Items(
     title: "2",
-    img: Icons.add,
+    //img: Icons.add,
     requiresMap: false,
+    img: "assets/medical.png",
+
+    iconColor: Colors.yellow,
+
   );
   Items item3 = new Items(
     title: "3",
-    img: Icons.add,
-    requiresMap: true,
+    //i/mg: Icons.add,
+    requiresMap: true,      img: "assets/medical.png",
+
+    iconColor: Colors.red,
+
 
   );
   Items item4 = new Items(
     title: "4",
-    img: Icons.add,
+    //img: Icons.add,
+    img: "assets/medical.png",
+
     requiresMap: false,
+    iconColor: Colors.red,
+
 
   );
   Items item5 = new Items(
     title: "4",
-    img: Icons.add,
-    requiresMap: true,
+    //img: Icons.add,
+    img: "assets/medical.png",
+
+    requiresMap: true,      iconColor: Colors.red,
+
 
   );
   Items item6 = new Items(
     title: "5",
-    img: Icons.add,
-    requiresMap: false,
+    //img: Icons.add,
+    img: "assets/medical.png",
+
+    requiresMap: false,      iconColor: Colors.red,
+
 
   );
   Items item7 = new Items(
     title: "6",
-    img: Icons.add,
-    requiresMap: true,
+    //img: Icons.add,
+    img: "assets/medical.png",
+
+    requiresMap: true,      iconColor: Colors.red,
+
   );
 
   @override
   Widget build(BuildContext context) {
     List<Items> listOfItems = [item1, item2, item3, item4, item5, item6, item7];
-    var color = 0xff1f1f1f;
+    var color = 0x54123b;
     return Flexible(
       child: GridView.count(
-          padding: EdgeInsets.only(left: 16, right: 16),
+          padding: EdgeInsets.only(left: 10, right: 10,),
+
           crossAxisCount: 2,
           crossAxisSpacing: 18,
           mainAxisSpacing: 18,
           children: listOfItems.map((data) {
             return InkWell(
+              highlightColor: Colors.orange,
               onTap: (){
                 print("Container ${data.title} clicked");
                 if(data.requiresMap){
@@ -65,33 +90,34 @@ class CardData extends StatelessWidget {
                 }
               },
               child: Container(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
                 decoration: BoxDecoration(
-                    color: Color(color),
+                    color: HexColor("#3c415c"),
+                    
                     borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 1.0, // soften the shadow
                       spreadRadius: 0.5, //extend the shadow
                       offset: Offset(3,3),
+                      color: Colors.grey[800]
                     )
                   ],
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(
+                    Image.asset(
                       data.img,
-                      size: 40,
-                      color: Colors.white,
-                    ),
-                    SizedBox(
-                      height: 20,
+                      height: 120,
                     ),
                     Text(
                       data.title,
+
                       style:TextStyle(
                               color: Colors.white,
-                              fontSize: 16,
+                              fontSize: 18,
+
                               fontWeight: FontWeight.w600)
                     ),
                   ],
@@ -106,7 +132,8 @@ class CardData extends StatelessWidget {
 class Items {
   String title;
   //String itemCount;
-  var img;
+  String img;
   bool requiresMap;
-  Items({this.title, this.img, this.requiresMap});
+  var iconColor;
+  Items({this.title, this.img, this.requiresMap, this.iconColor});
 }
