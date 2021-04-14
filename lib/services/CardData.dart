@@ -1,4 +1,7 @@
 
+import 'package:directory_app/pages/SubpageTest.dart';
+import 'package:directory_app/pages/Subpage.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -9,6 +12,7 @@ class CardData extends StatelessWidget {
       img: "assets/medical1.png",
       requiresMap: true,
       iconColor: Colors.red,
+      name: "Departments"
   );
 
   Items item2 = new Items(
@@ -18,6 +22,7 @@ class CardData extends StatelessWidget {
     img: "assets/medical.png",
 
     iconColor: Colors.yellow,
+      name: "Eateries"
 
   );
   Items item3 = new Items(
@@ -26,6 +31,7 @@ class CardData extends StatelessWidget {
     requiresMap: true,      img: "assets/medical.png",
 
     iconColor: Colors.red,
+      name: "auto"
 
 
   );
@@ -35,7 +41,8 @@ class CardData extends StatelessWidget {
     img: "assets/medical.png",
 
     requiresMap: false,
-    iconColor: Colors.red,
+    iconColor: Colors.red,name: "auto"
+
 
 
   );
@@ -44,7 +51,8 @@ class CardData extends StatelessWidget {
     //img: Icons.add,
     img: "assets/medical.png",
 
-    requiresMap: true,      iconColor: Colors.red,
+    requiresMap: true,      iconColor: Colors.red,name: "auto"
+
 
 
   );
@@ -53,7 +61,8 @@ class CardData extends StatelessWidget {
     //img: Icons.add,
     img: "assets/medical.png",
 
-    requiresMap: false,      iconColor: Colors.red,
+    requiresMap: false,      iconColor: Colors.red,name: "auto"
+
 
 
   );
@@ -62,7 +71,8 @@ class CardData extends StatelessWidget {
     //img: Icons.add,
     img: "assets/medical.png",
 
-    requiresMap: true,      iconColor: Colors.red,
+    requiresMap: true,      iconColor: Colors.red,name: "auto"
+
 
   );
 
@@ -81,13 +91,7 @@ class CardData extends StatelessWidget {
             return InkWell(
               highlightColor: Colors.orange,
               onTap: (){
-                print("Container ${data.title} clicked");
-                if(data.requiresMap){
-                  print("This one requires map");
-                }
-                else{
-                  print("This one doesnt ");
-                }
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Subpage(subCat: data.name)), );
               },
               child: Container(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
@@ -98,8 +102,8 @@ class CardData extends StatelessWidget {
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 1.0, // soften the shadow
-                      spreadRadius: 0.5, //extend the shadow
-                      offset: Offset(3,3),
+                      spreadRadius: 0.1, //extend the shadow
+                      offset: Offset(1,2),
                       color: Colors.grey[800]
                     )
                   ],
@@ -116,8 +120,7 @@ class CardData extends StatelessWidget {
 
                       style:TextStyle(
                               color: Colors.white,
-                              fontSize: 18,
-
+                              fontSize: 16,
                               fontWeight: FontWeight.w600)
                     ),
                   ],
@@ -135,5 +138,6 @@ class Items {
   String img;
   bool requiresMap;
   var iconColor;
-  Items({this.title, this.img, this.requiresMap, this.iconColor});
+  String name;
+  Items({this.title, this.img, this.requiresMap, this.iconColor, this.name});
 }
