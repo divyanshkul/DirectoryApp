@@ -124,7 +124,7 @@ class CardData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Items> listOfItems = [item1, item2, item3, item4, item13, item6, item5, item7, item8, item9, item10, item11, item12];
+    List<Items> listOfItems = [item1, item2, item3, item4, item6, item5, item7, item8, item9, item10, item11, item12, item13];
     var color = 0x54123b;
     return Flexible(
       child: GridView.count(
