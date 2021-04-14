@@ -21,7 +21,7 @@ class DirectoryApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/Welcome',
+      initialRoute: '/loading',
       routes: {
         '/Welcome': (context) => Welcome(),
         '/Home': (context) => Home(),
