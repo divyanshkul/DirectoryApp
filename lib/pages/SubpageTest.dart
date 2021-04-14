@@ -3,6 +3,7 @@ import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SubpageTest extends StatefulWidget {
@@ -20,7 +21,12 @@ class _SubpageTestState extends State<SubpageTest> {
   Map<dynamic, dynamic> values;
   bool wantToReport = false;
   _makingPhoneCall(String number) => launch('tel: $number');
+  _makingMapCall(String link) => launch('$link');
+
+
   final textController = TextEditingController();
+  int reported;
+  int upvoted;
 
 
 
@@ -53,6 +59,7 @@ class _SubpageTestState extends State<SubpageTest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.black.withOpacity(0.9),
         body: FutureBuilder(
             future: ref.once(),
             builder: (context, AsyncSnapshot<DataSnapshot> snapshot) {
@@ -66,6 +73,7 @@ class _SubpageTestState extends State<SubpageTest> {
                         child: Column(
                           children: [
                             Card(
+                              color: Colors.grey[900],
                               // child: new ListTile(
                               // title: new Text(document['name']),
                               // subtitle: new Text("Clsasss"),
@@ -82,11 +90,21 @@ class _SubpageTestState extends State<SubpageTest> {
                                         print("PrintF");
                                         _makingPhoneCall(document['contact'].toString());
                                       },
-                                    )                              ,
-                                    title: Text(document['name']),
+                                    )                            ,
+                                    title: Text(document['name'], style: TextStyle(color: Colors.white, fontSize: 22)),
                                     subtitle: Text(
-                                      widget.subCat,
-                                      style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                                      widget.subCat.toUpperCase(),
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    trailing: IconButton(
+                                      icon: Icon(
+                                        Icons.map, size: 30,
+                                        color: Colors.green[300],
+                                      ),
+                                      onPressed: (){
+
+                                        _makingMapCall(document['launch'].toString());
+                                      },
                                     ),
                                   ),
                                   Row(
@@ -97,7 +115,7 @@ class _SubpageTestState extends State<SubpageTest> {
                                         child: Text(
                                           document['contact'].toString(),
                                           style: TextStyle
-                                            (color: document['reported'] > 2 ? Colors.red : Colors.black.withOpacity(0.6),
+                                            (color: document['reported'] > 2 ? Colors.red : Colors.white,
                                               fontSize: 18),
                                         ),
                                       ),],
@@ -105,36 +123,56 @@ class _SubpageTestState extends State<SubpageTest> {
 
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
-
-
-
                                     children:[
                                       Container(
-                                        margin: EdgeInsets.fromLTRB(80, 10, 0, 0),
+                                        margin: EdgeInsets.fromLTRB(80, 5, 0, 0),
                                         child: Text(
                                           "Upvotes: ${document['upvoted']}",
                                           style: TextStyle(
-                                            fontSize: 12,
+                                            color: Colors.green[800],
+                                            fontSize: 14,
                                           ),
                                         ),
                                       ),
+
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children:[
+                                      Container(
+                                        margin: EdgeInsets.fromLTRB(80, 5, 0, 0),
+                                        child: Text(
+                                          "Reports: ${document['reported']}",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: document['reported'] > 2 ? Colors.red : Colors.white
+                                          ),
+                                        ),
+                                      ),
+
                                     ],
                                   ),
                                   ButtonBar(
                                     alignment: MainAxisAlignment.start,
                                     children: [
                                       MaterialButton(
-                                        textColor: const Color(0xFF6200EE),
+                                        textColor:  HexColor('#03DAC5'),
                                         onPressed: () {
-
+                                          upvoted = document['upvoted'];
+                                          upvoted += 1;
+                                          print(widget.subCat);
+                                          final getRef = FirebaseDatabase.instance.reference().child('Categories/${widget.subCat}/${document['index']}').update({
+                                            'upvoted': upvoted,
+                                          });
                                           // Perform some action
                                         },
                                         child: const Text('UPVOTE'),
                                       ),
                                       MaterialButton(
-                                        textColor: const Color(0xFF6200EE),
+                                        textColor: HexColor('#03DAC5'),
                                         onPressed: () {
-                                          _showBottomModal(context);
+                                          _showBottomModal(context, document);
                                           // Perform some action
                                         },
                                         child: const Text('REPORT'),
@@ -166,7 +204,7 @@ class _SubpageTestState extends State<SubpageTest> {
   }
 
 
-  _showBottomModal(context) {
+  _showBottomModal(context, dynamic document) {
     return showModalBottomSheet(
         context: context,
         backgroundColor: Colors.transparent,
@@ -212,10 +250,21 @@ class _SubpageTestState extends State<SubpageTest> {
                             onPressed: () {
                               Navigator.pop(context);
                               //print(textController.text);
-                              if(textController.text == ""){
-                                print("Khaali hai");
+                              reported = document['reported'];
+                              reported += 1;
+                              print(reported);
+                              if (textController.text == '') {
+                                final getRef = FirebaseDatabase.instance.reference().child('Categories/${widget.subCat}/${document['index']}')
+                                    .update({
+                                  'reported': reported,
+                                });
                               }
-                              else{print(textController.text);}
+                              else{
+                                final getRef = FirebaseDatabase.instance.reference().child('Categories/${widget
+                                    .subCat}/${document['index']}').update({
+                                  'reportedResponses': textController.text,
+                                });
+                              }
                             },
                             child: Text(
                               "Save",

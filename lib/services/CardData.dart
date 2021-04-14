@@ -68,7 +68,7 @@ class CardData extends StatelessWidget {
   Items item8 = new Items(
       title: "Misc. Services",
       //img: Icons.add,
-      img: "assets/medical.png",
+      img: "assets/misc.png",
       requiresMap: true,
       iconColor: Colors.red,
       name: "Miscellaneous Services"
@@ -132,12 +132,12 @@ class CardData extends StatelessWidget {
             left: 10,
             right: 10,
           ),
+
           crossAxisCount: 2,
-          crossAxisSpacing: 18,
-          mainAxisSpacing: 18,
+          crossAxisSpacing: 30,
+          mainAxisSpacing: 30,
           children: listOfItems.map((data) {
             return InkWell(
-              highlightColor: Colors.orange,
                 onTap: () {
                 Navigator.push(
                   context,
@@ -148,14 +148,15 @@ class CardData extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
                 decoration: BoxDecoration(
-                  color: HexColor("#3c415c"),
+                  color: Colors.grey[900],
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
                         blurRadius: 1.0, // soften the shadow
                         spreadRadius: 0.5, //extend the shadow
                         offset: Offset(3, 3),
-                        color: Colors.grey[800])
+
+                        color: Colors.grey[900])
                   ],
                 ),
                 child: Column(
@@ -168,7 +169,7 @@ class CardData extends StatelessWidget {
                     Text(data.title,
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 14,
+                            fontSize: 15,
                             fontWeight: FontWeight.w600)),
                   ],
                 ),

@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
         child: Column(
           children: <Widget>[
             SizedBox(
-              height: 30,
+              height: 10,
             ),
             Padding(
               padding: EdgeInsets.only(left: 16, right: 16),
@@ -33,10 +33,6 @@ class _HomeState extends State<Home> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
-
-                      SizedBox(
-                        height: 2,
-                      ),
                       Text(
                         "Directory",
                         style: TextStyle(
@@ -59,7 +55,8 @@ class _HomeState extends State<Home> {
               thickness: 0.3,
             ),
             SizedBox(height: 20),
-            CardData()
+            CardData(),
+
           ],
         ),
       ),
