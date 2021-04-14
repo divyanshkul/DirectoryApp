@@ -21,14 +21,14 @@ class DirectoryApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/Welcome',
+      initialRoute: '/Subpage',
       routes: {
         '/Welcome': (context) => Welcome(),
         '/Home': (context) => Home(),
         '/Chat': (context) => Chat(),
         // '/SubpageMap': (context) => SubpageMap(),
         '/Locate': (context) => Locate(),
-        '/Subpage': (context) => Subpage(),
+        '/Subpage': (context) => Subpage(subCat: 'Eateries'),
         '/loading': (context) => Loading(),
         '/SubpageMap': (context) => SubpageMap(),
         '/SubpageTest': (context) => SubpageTest(),

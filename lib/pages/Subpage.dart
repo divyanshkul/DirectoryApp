@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // import 'package:sliding_up_panel/sliding_up_panel.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
@@ -17,6 +18,8 @@ class Subpage extends StatefulWidget {
 }
 
 class _SubpageState extends State<Subpage> {
+  Map<dynamic,dynamic> markerData;
+
   Query ref, markRef;
   Map<dynamic, dynamic> values;
 
@@ -57,25 +60,63 @@ class _SubpageState extends State<Subpage> {
     //   }),
     // ),
     // );
-    // allMarkers.add(Marker(
-    //   markerId: MarkerId('MyMarker'),
-    //   draggable: true,
-    //   onTap: () {
-    //     print("Marker Tapped");
-    //   },
-    //   infoWindow: InfoWindow(
-    //       title: "Vishram Spot 1",
-    //       snippet: "One stop for the rest stop"),
-    //   position: LatLng(28.6987135, 77.3181042),
-    //   onDragEnd: ((newPosition) {
-    //     print(newPosition.latitude);
-    //     print(newPosition.longitude);
-    //   }),
-    // ),
-    // );
-    markRef.once().then((DataSnapshot snapshot){
-       var vals = snapshot.value;
 
+    markRef.once().then((DataSnapshot snapshot){
+
+        markerData = snapshot.value;
+        // print(markerData["medical"]);
+        // print("LOLOL");
+        //
+        // print(markerData[0]);
+        // print(
+        //   'BHOSAD'
+        // );
+        markerData.forEach((key, value) {
+
+          List xD = value.toList();
+          xD.forEach((element) {
+            // print(element['name']);
+            // print(element['category']);
+            //
+            // print(element['lat']);
+            // print(element['lon']);
+            // print('\n');
+            allMarkers.add(Marker(
+              markerId: MarkerId(element['name']),
+              draggable: false,
+              onTap: () {
+                print(element['name']);
+                // launch('https://goo.gl/maps/8KgH4oNhWxKfgRpn6');
+              },
+              infoWindow: InfoWindow(
+                  title: element['name'],
+                  snippet: element['category']),
+              position: LatLng(element['lat'], element['lon']),
+              // onDragEnd: ((newPosition) {
+              //   print(newPosition.latitude);
+              //   print(newPosition.longitude);
+              // }),
+            ),
+            );
+          });
+        });
+        print(allMarkers);
+        // allMarkers.add(Marker(
+        //   markerId: MarkerId('MyMarker'),
+        //   draggable: true,
+        //   onTap: () {
+        //     print("Marker Tapped");
+        //   },
+        //   infoWindow: InfoWindow(
+        //       title: "Vishram Spot 1",
+        //       snippet: "One stop for the rest stop"),
+        //   position: LatLng(28.6987135, 77.3181042),
+        //   onDragEnd: ((newPosition) {
+        //     print(newPosition.latitude);
+        //     print(newPosition.longitude);
+        //   }),
+        // ),
+        // );
     });
   }
 
