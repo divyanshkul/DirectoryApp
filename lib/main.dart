@@ -4,16 +4,8 @@ import 'package:directory_app/pages/Chat.dart';
 import 'package:directory_app/pages/Home.dart';
 import 'package:directory_app/pages/Locate.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-// import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:directory_app/pages/Welcome.dart';
-
-import 'package:directory_app/pages/Welcome.dart';
-// import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-
-// import 'package:directory_app/pages/Subpage.dart';
-// import 'package:directory_app/pages/SubpageMap.dart';
- import 'package:directory_app/pages/loading.dart';
+import 'package:directory_app/pages/loading.dart';
 
 
 //void main() => runApp(MyApp());
