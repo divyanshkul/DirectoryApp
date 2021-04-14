@@ -7,7 +7,7 @@ import 'package:directory_app/pages/Locate.dart';
 import 'package:directory_app/pages/loading.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:directory_app/pages/Welcome.dart';
-gi
+
 class Welcome extends StatefulWidget {
   @override
   _WelcomeState createState() => _WelcomeState();
