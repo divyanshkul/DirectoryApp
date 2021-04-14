@@ -18,7 +18,7 @@ class _WelcomeState extends State<Welcome> {
 
   final _pageOptions = [Home(), Subpage(subCat: 'Eateries')]; // listing of all 3 pages index wise
 
-  final bgcolor = [Colors.grey[300], Colors.grey[300]];  // changing color as per active index value
+  final bgcolor = [Colors.deepPurple, Colors.deepPurple];  // changing color as per active index value
 
   @override
   Widget build(BuildContext context) {
@@ -28,18 +28,18 @@ class _WelcomeState extends State<Welcome> {
         height: 50,
         buttonBackgroundColor: Colors.white,
         backgroundColor: bgcolor[selectedpage],
-        color: Colors.white,
+        color: Colors.black,
         animationCurve: Curves.linearToEaseOut,
         items: <Widget>[
           Icon(
             Icons.contacts,
             size: 30,
-            color: Colors.purple,
+            color: Colors.deepPurple,
           ),
           Icon(
             Icons.map,
             size: 30,
-            color: Colors.purple,
+            color: Colors.deepPurple,
           )
         ],
         onTap: (index) {

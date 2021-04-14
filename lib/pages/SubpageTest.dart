@@ -3,6 +3,7 @@ import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SubpageTest extends StatefulWidget {
@@ -58,6 +59,7 @@ class _SubpageTestState extends State<SubpageTest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.black.withOpacity(0.9),
         body: FutureBuilder(
             future: ref.once(),
             builder: (context, AsyncSnapshot<DataSnapshot> snapshot) {
@@ -71,6 +73,7 @@ class _SubpageTestState extends State<SubpageTest> {
                         child: Column(
                           children: [
                             Card(
+                              color: Colors.grey[900],
                               // child: new ListTile(
                               // title: new Text(document['name']),
                               // subtitle: new Text("Clsasss"),
@@ -88,10 +91,10 @@ class _SubpageTestState extends State<SubpageTest> {
                                         _makingPhoneCall(document['contact'].toString());
                                       },
                                     )                            ,
-                                    title: Text(document['name']),
+                                    title: Text(document['name'], style: TextStyle(color: Colors.white, fontSize: 22)),
                                     subtitle: Text(
-                                      widget.subCat,
-                                      style: TextStyle(color: Colors.black.withOpacity(0.8)),
+                                      widget.subCat.toUpperCase(),
+                                      style: TextStyle(color: Colors.white),
                                     ),
                                     trailing: IconButton(
                                       icon: Icon(
@@ -112,7 +115,7 @@ class _SubpageTestState extends State<SubpageTest> {
                                         child: Text(
                                           document['contact'].toString(),
                                           style: TextStyle
-                                            (color: document['reported'] > 2 ? Colors.red : Colors.black.withOpacity(0.6),
+                                            (color: document['reported'] > 2 ? Colors.red : Colors.white,
                                               fontSize: 18),
                                         ),
                                       ),],
@@ -127,7 +130,7 @@ class _SubpageTestState extends State<SubpageTest> {
                                           "Upvotes: ${document['upvoted']}",
                                           style: TextStyle(
                                             color: Colors.green[800],
-                                            fontSize: 12,
+                                            fontSize: 14,
                                           ),
                                         ),
                                       ),
@@ -142,8 +145,8 @@ class _SubpageTestState extends State<SubpageTest> {
                                         child: Text(
                                           "Reports: ${document['reported']}",
                                           style: TextStyle(
-                                            fontSize: 12,
-                                            color: document['reported'] > 2 ? Colors.red : Colors.black.withOpacity(0.6)
+                                            fontSize: 14,
+                                            color: document['reported'] > 2 ? Colors.red : Colors.white
                                           ),
                                         ),
                                       ),
@@ -154,7 +157,7 @@ class _SubpageTestState extends State<SubpageTest> {
                                     alignment: MainAxisAlignment.start,
                                     children: [
                                       MaterialButton(
-                                        textColor: const Color(0xFF6200EE),
+                                        textColor:  HexColor('#03DAC5'),
                                         onPressed: () {
                                           upvoted = document['upvoted'];
                                           upvoted += 1;
@@ -167,7 +170,7 @@ class _SubpageTestState extends State<SubpageTest> {
                                         child: const Text('UPVOTE'),
                                       ),
                                       MaterialButton(
-                                        textColor: const Color(0xFF6200EE),
+                                        textColor: HexColor('#03DAC5'),
                                         onPressed: () {
                                           _showBottomModal(context, document);
                                           // Perform some action
