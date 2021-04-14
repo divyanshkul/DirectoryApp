@@ -1,4 +1,5 @@
 
+import 'package:directory_app/pages/SubpageTest.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -9,6 +10,7 @@ class CardData extends StatelessWidget {
       img: "assets/medical1.png",
       requiresMap: true,
       iconColor: Colors.red,
+      name: "Departments"
   );
 
   Items item2 = new Items(
@@ -18,6 +20,7 @@ class CardData extends StatelessWidget {
     img: "assets/medical.png",
 
     iconColor: Colors.yellow,
+      name: "Eateries"
 
   );
   Items item3 = new Items(
@@ -26,6 +29,7 @@ class CardData extends StatelessWidget {
     requiresMap: true,      img: "assets/medical.png",
 
     iconColor: Colors.red,
+      name: "auto"
 
 
   );
@@ -35,7 +39,8 @@ class CardData extends StatelessWidget {
     img: "assets/medical.png",
 
     requiresMap: false,
-    iconColor: Colors.red,
+    iconColor: Colors.red,name: "auto"
+
 
 
   );
@@ -44,7 +49,8 @@ class CardData extends StatelessWidget {
     //img: Icons.add,
     img: "assets/medical.png",
 
-    requiresMap: true,      iconColor: Colors.red,
+    requiresMap: true,      iconColor: Colors.red,name: "auto"
+
 
 
   );
@@ -53,7 +59,8 @@ class CardData extends StatelessWidget {
     //img: Icons.add,
     img: "assets/medical.png",
 
-    requiresMap: false,      iconColor: Colors.red,
+    requiresMap: false,      iconColor: Colors.red,name: "auto"
+
 
 
   );
@@ -62,7 +69,8 @@ class CardData extends StatelessWidget {
     //img: Icons.add,
     img: "assets/medical.png",
 
-    requiresMap: true,      iconColor: Colors.red,
+    requiresMap: true,      iconColor: Colors.red,name: "auto"
+
 
   );
 
@@ -81,13 +89,7 @@ class CardData extends StatelessWidget {
             return InkWell(
               highlightColor: Colors.orange,
               onTap: (){
-                print("Container ${data.title} clicked");
-                if(data.requiresMap){
-                  print("This one requires map");
-                }
-                else{
-                  print("This one doesnt ");
-                }
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SubpageTest(subCat: data.name)), );
               },
               child: Container(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
@@ -135,5 +137,6 @@ class Items {
   String img;
   bool requiresMap;
   var iconColor;
-  Items({this.title, this.img, this.requiresMap, this.iconColor});
+  String name;
+  Items({this.title, this.img, this.requiresMap, this.iconColor, this.name});
 }
