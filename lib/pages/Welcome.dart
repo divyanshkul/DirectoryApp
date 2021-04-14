@@ -1,3 +1,4 @@
+import 'package:directory_app/pages/Subpage.dart';
 import 'package:flutter/material.dart';
 
 import 'package:directory_app/pages/Chat.dart';
@@ -15,9 +16,9 @@ class Welcome extends StatefulWidget {
 class _WelcomeState extends State<Welcome> {
   int selectedpage = 0; //initial value
 
-  final _pageOptions = [Home(), Locate(), Chat()]; // listing of all 3 pages index wise
+  final _pageOptions = [Home(), Subpage(subCat: 'Eateries')]; // listing of all 3 pages index wise
 
-  final bgcolor = [Colors.grey[900], Colors.grey[900], Colors.grey[900]];  // changing color as per active index value
+  final bgcolor = [Colors.grey[300], Colors.grey[300]];  // changing color as per active index value
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +38,6 @@ class _WelcomeState extends State<Welcome> {
           ),
           Icon(
             Icons.map,
-            size: 30,
-            color: Colors.purple,
-          ),
-          Icon(
-            Icons.chat_bubble,
             size: 30,
             color: Colors.purple,
           )

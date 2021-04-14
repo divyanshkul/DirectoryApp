@@ -19,20 +19,21 @@ class Subpage extends StatefulWidget {
 
 class _SubpageState extends State<Subpage> {
   Map<dynamic,dynamic> markerData;
-
+  List<Widget> catNames = [];
   Query ref, markRef;
   Map<dynamic, dynamic> values;
 
   Position currentPosition;
   var geoLocator = Geolocator();
-  static const LatLng _center = const LatLng(28.5987135, 77.3181042);
+  static const LatLng _center = const LatLng(13.353698208659731, 74.78478820836084);
   Completer<GoogleMapController> _controllerGoogleMap = Completer();
   GoogleMapController newGoogleMapController;
 
   void locatePosition() async {
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
-    LatLng latLngPosition = LatLng(position.latitude, position.longitude);
+    // LatLng latLngPosition = LatLng(position.latitude, position.longitude);
+    LatLng latLngPosition = LatLng(13.353698208659731, 74.78478820836084);
     CameraPosition cameraPosition = new CameraPosition(
         target: latLngPosition, zoom: 15);
     newGoogleMapController.animateCamera(
@@ -71,9 +72,13 @@ class _SubpageState extends State<Subpage> {
         // print(
         //   'BHOSAD'
         // );
+        print("SEX");
+
         markerData.forEach((key, value) {
 
           List xD = value.toList();
+          // catNames = List.generate(xD.length, (index) => xD[index]);
+          // print(xD);
           xD.forEach((element) {
             // print(element['name']);
             // print(element['category']);
@@ -86,7 +91,7 @@ class _SubpageState extends State<Subpage> {
               draggable: false,
               onTap: () {
                 print(element['name']);
-                // launch('https://goo.gl/maps/8KgH4oNhWxKfgRpn6');
+                launch(element['launch']);
               },
               infoWindow: InfoWindow(
                   title: element['name'],
@@ -101,22 +106,21 @@ class _SubpageState extends State<Subpage> {
           });
         });
         print(allMarkers);
-        // allMarkers.add(Marker(
-        //   markerId: MarkerId('MyMarker'),
-        //   draggable: true,
-        //   onTap: () {
-        //     print("Marker Tapped");
-        //   },
-        //   infoWindow: InfoWindow(
-        //       title: "Vishram Spot 1",
-        //       snippet: "One stop for the rest stop"),
-        //   position: LatLng(28.6987135, 77.3181042),
-        //   onDragEnd: ((newPosition) {
-        //     print(newPosition.latitude);
-        //     print(newPosition.longitude);
-        //   }),
-        // ),
-        // );
+        allMarkers.add(Marker(
+          markerId: MarkerId('MIT'),
+          draggable: true,
+          onTap: () {
+            // print("Marker Tapped");
+            launch('https://goo.gl/maps/gL6cVK9iQvzNiJkQ8');
+          },
+          infoWindow: InfoWindow(
+              title: "MAHE, MIT Manipal",
+              snippet: "Manipal Academy of Higher Education"),
+          position: LatLng(13.353698208659731, 74.78478820836084),
+
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
+        ),
+        );
     });
   }
 
@@ -125,7 +129,8 @@ class _SubpageState extends State<Subpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.subCat.toString()),
+        backgroundColor: Colors.black87,
+        title: Text("Map View"),
       ),
       body: FutureBuilder(
           future: ref.once(),
@@ -137,7 +142,7 @@ class _SubpageState extends State<Subpage> {
                     children: [
 
                       Container(
-                        padding: EdgeInsets.fromLTRB(0, 0, 0, 85),
+                        padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                         child: GoogleMap(
                           onMapCreated: (GoogleMapController controller) {
                             _controllerGoogleMap.complete(controller);
@@ -155,45 +160,94 @@ class _SubpageState extends State<Subpage> {
                           markers: Set.from(allMarkers),
                         ),
                       ),
-                      DraggableScrollableSheet(
-                          initialChildSize: 0.35,
-                          minChildSize: 0.1,
-                          maxChildSize: 0.7,
+                      // DraggableScrollableSheet(
+                      //     initialChildSize: 0.35,
+                      //     minChildSize: 0.12,
+                      //     maxChildSize: 0.7,
+                      //     builder: (context,scrollController){
+                      //       return Container(
+                      //         decoration: BoxDecoration(
+                      //           color: Colors.black,
+                      //         ),
+                      //
+                      //         child: SingleChildScrollView(
+                      //           controller: scrollController,
+                      //           child: Container(
+                      //             padding: EdgeInsets.fromLTRB(10, 50, 10, 10),
+                      //             child:  Wrap(
+                      //               spacing: 10,
+                      //                   // children:,
+                      //                     // Chip(
+                                          //   label: Text("LOLOLOL"),
+                                          //   avatar: CircleAvatar(
+                                          //     child: Text("1"),
+                                          //   ),
+                                          // ),
+                                          // Chip(
+                                          //   label: Text("LOLOLOL"),
+                                          //   avatar: CircleAvatar(
+                                          //     child: Text("1"),
+                                          //   ),
+                                          // ),
+                                          // Chip(
+                                          //   label: Text("LOLOLOL"),
+                                          //   avatar: CircleAvatar(
+                                          //     child: Text("1"),
+                                          //   ),
+                                          // ),
+                                          // Chip(
+                                          //   label: Text("LOLOLOL"),
+                                          //   avatar: CircleAvatar(
+                                          //     child: Text("1"),
+                                          //   ),
+                                          // ),Chip(
+                                          //   label: Text("LOLOLOL"),
+                                          //   avatar: CircleAvatar(
+                                          //     child: Text("1"),
+                                          //   ),
+                                          // ),
 
-                          builder: (context, scrollController) {
-                            if (snapshot.hasData) {
-                              values = snapshot.data.value;
-                              return Container(
-                                padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                                decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(0.9),
-                                ),
-                                child: new ListView(
-                                    controller: scrollController,
-                                    children: values["Categories"][widget
-                                        .subCat]
-                                        .map<Widget>((document) {
-                                      return Card(
-                                        margin: EdgeInsets.fromLTRB(
-                                            10, 0, 10, 20),
-                                        child: InkWell(
-                                          onTap: () {
-                                            print("sex");
-                                          },
-                                          child: new ListTile(
+                          //         ),
+                          //       ),
+                          //     ),
+                          //   );
+                          // },
 
-                                            title: new Text(document['name']),
-                                            subtitle: new Text(
-                                                document['contact'].toString()),
-                                          ),
-                                        ),
-                                      );
-                                    }).toList()),
-                              );
-                            } else {
-                              return CircularProgressIndicator();
-                            }
-                          }),
+                          // builder: (context, scrollController) {
+                          //   if (snapshot.hasData) {
+                          //     values = snapshot.data.value;
+                          //     return Container(
+                          //       padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          //       decoration: BoxDecoration(
+                          //         color: Colors.black.withOpacity(0.9),
+                          //       ),
+                          //       child: new ListView(
+                          //           controller: scrollController,
+                          //           children: values["Categories"][widget
+                          //               .subCat]
+                          //               .map<Widget>((document) {
+                          //             return Card(
+                          //               margin: EdgeInsets.fromLTRB(
+                          //                   10, 0, 10, 20),
+                          //               child: InkWell(
+                          //                 onTap: () {
+                          //                   print("sex");
+                          //                 },
+                          //                 child: new ListTile(
+                          //
+                          //                   title: new Text(document['name']),
+                          //                   subtitle: new Text(
+                          //                       document['contact'].toString()),
+                          //                 ),
+                          //               ),
+                          //             );
+                          //           }).toList()),
+                          //     );
+                          //   } else {
+                          //     return CircularProgressIndicator();
+                          //   }
+                          // },
+                      // ),
 
                     ],
                   ),
